@@ -13,11 +13,23 @@ default: &default
 development:
   <<: *default
   database: Recipes_db
+  adapter: postgresql
+  username: postgres
+  password: mosi24031994
+  host: localhost
+  port: 5432
 
 test:
   <<: *default
   database:  Recipes_test_db
+  adapter: postgresql
+  username: postgres
+  password: mosi24031994
+  host: localhost
+  port: 5432
 
 production:
   <<: *default
   database:  Recipes_db
+  username: Recipes_db
+  password: <%= ENV["BLOG_APP_DATABASE_PASSWORD"] %>
