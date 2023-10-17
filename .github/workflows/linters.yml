@@ -1,3 +1,24 @@
+<<<<<<< HEAD
+name: Tests
+
+on: pull_request
+
+jobs:
+  rspec:
+    name: RSpec
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 3.1.x
+      - name: Setup RSpec
+        run: |
+          [ -f Gemfile ] && bundle
+          gem install --no-document rspec -v '>=3.0, < 4.0'
+      - name: RSpec Report
+        run: rspec --force-color --format documentation
+=======
 name: Linters
 
 on: pull_request
@@ -42,3 +63,4 @@ jobs:
       - name: Check node_modules existence
         run: |
           if [ -d "node_modules/" ]; then echo -e "\e[1;31mThe node_modules/ folder was pushed to the repo. Please remove it from the GitHub repository and try again."; echo -e "\e[1;32mYou can set up a .gitignore file with this folder included on it to prevent this from happening in the future." && exit 1; fi
+>>>>>>> e4a88aa16c731167ec85fa39bcb94cf455eacf4d
