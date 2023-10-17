@@ -16,12 +16,12 @@ Metrics/AbcSize:
 Metrics/ClassLength:
   Max: 150
 Metrics/BlockLength:
-  IgnoredMethods: ["describe"]
-  Max: 50
+  IgnoredMethods: ['describe']
+  Max: 30
 Metrics/CyclomaticComplexity:
   Enabled: false
 Metrics/PerceivedComplexity:
-  Enabled: false
+  Enabled: false    
 
 Style/Documentation:
   Enabled: false
@@ -53,3 +53,4 @@ Style/HashTransformKeys:
   Enabled: false
 Style/HashTransformValues:
   Enabled: false
+
