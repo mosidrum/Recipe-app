@@ -1,0 +1,26 @@
+<% if user_signed_in? %>
+  <nav class="main-container-navbar">
+    <div class="navbar">
+      <a class="navbar-title" href="/">Foods Recipe</a>
+      <div class="navbar-text">
+        <ul class="navbar-list">
+          <li class="nav-item">
+            <%= link_to "Foods", foods_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Recipes", recipes_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Public Recipes", public_recipes_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Shopping Lists", shopping_list_path, class: "nav-link" %>
+          </li>
+        </ul>
+        <span class="navbar-text">
+          Logout
+        </span>
+      </div>
+    </div>
+  </nav>
+<% end %>
