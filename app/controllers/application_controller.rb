@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def after_sign_in_path_for(_resource)
-    foods_path
+    root_path
   end
 
   protected
