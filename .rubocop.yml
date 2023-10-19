@@ -17,7 +17,7 @@ Metrics/ClassLength:
   Max: 150
 Metrics/BlockLength:
   IgnoredMethods: ['describe']
-  Max: 30
+  Max: 50
 Metrics/CyclomaticComplexity:
   Enabled: false
 Metrics/PerceivedComplexity:
@@ -35,6 +35,8 @@ Style/DefWithParentheses:
   Enabled: false
 Style/FrozenStringLiteralComment:
   EnforcedStyle: never
+Style/EndOfLine:
+  EnforcedStyle: crlf    
 
 Layout/HashAlignment:
   EnforcedColonStyle: key
@@ -53,4 +55,7 @@ Style/HashTransformKeys:
   Enabled: false
 Style/HashTransformValues:
   Enabled: false
+Lint/ScriptPermission:
+  Enabled: false
+
 
