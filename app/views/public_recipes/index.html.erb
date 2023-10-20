@@ -1,0 +1,16 @@
+<h1>Public Recipes</h1>
+
+<div class="container">
+<% @public_recipes.each do |public_recipe| %>
+  <div class = "public-container">
+  <div>
+  <%= link_to public_recipe.name, recipe_path(public_recipe) %>
+  <p>By: <%= public_recipe.user.name %></p>
+</div>
+<div>
+<p>Total food items: <%= public_recipe.foods.count %></p>
+<p>Total price: <%= number_to_currency(public_recipe.foods.sum(:price)) %></p>
+</div>
+  </div>
+  <%end%>
+</div>

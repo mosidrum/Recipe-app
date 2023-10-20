@@ -1,0 +1,40 @@
+<div>
+  <h1>Foods</h1>
+  <div>
+    <%= link_to "Add food", new_food_path %>
+  </div>
+  <div>
+    <% if @foods.empty? %>
+      <p>No foods available.</p>
+    <% else %>
+      <table>
+        <thead>
+          <tr>
+            <th>Food</th>
+            <th>quantity</th>
+            <th>Measurement Unit</th>
+            <th>Unit Price</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @foods.each do |food| %>
+            <tr>
+              <td>
+                <%= link_to food.name, food_url(current_user.id, food.id) %>
+              </td>
+              <td><%= food.quantity %></td>
+              <td><%= food.measurement_unit %></td>
+              <td><span>$<%= food.price %></td></span>
+              <td>
+                <%= button_to "Delete",
+                  food_path(food.id), method: :delete,
+                  data: { confirm: "Delete food?" } %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+</div>
