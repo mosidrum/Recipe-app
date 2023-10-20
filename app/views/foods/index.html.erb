@@ -1,0 +1,33 @@
+<main class="container-food">
+  <div class="card-container-food">
+    <div class="card-header-food">
+      <div>
+        <%= link_to 'Add food', new_food_path, class: 'btn-add-food' %>
+      </div>
+    </div>
+    <div class="card-body-food">
+      <table class="table-food">
+        <thead class="thead-food">
+          <tr>
+            <th>Food</th>
+            <th>Measurement unit</th>
+            <th>Unit price</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @foods.each do |food| %>
+            <tr>
+              <td><%= food.name %></td>
+              <td><%= food.measurement_unit %></td>
+              <td><%= food.price %></td>
+              <td>
+                   <%= link_to 'Delete', food_path(food), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn-delete' %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>
