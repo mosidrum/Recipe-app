@@ -1,6 +1,25 @@
-<h1>Public Recipes</h1>
-<ul>
-  <% @recipes.each do |recipe| %>
-    <li><%= recipe.name %></li>
+<div class="container-public-recipe">
+  <div>
+    <h1 class="title-public-recipe">Public Recipes</h1>
+  </div>
+  <% @recipes.includes(:user).each do |recipe| %>
+    <div class="card-public-recipe5">
+      <div class="card-body-public-recipe">
+        <div class="container-list-public-recipe">
+          <div>
+            <h3><%= recipe.name %></h3>
+            <span>By: <%= recipe.user.name %></span>
+          </div>
+          <div class="price-container-public-recipe">
+            <p>
+              Total food items: $10.00
+            </p>
+            <p>
+              Total price: $10.00
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
   <% end %>
-</ul>
+</div>
