@@ -6,6 +6,8 @@ class ShoppingListsController < ApplicationController
     @recipe = Recipe.find_by(id: recipe_id)
     return redirect_to root_path, alert: 'Recipe was not found' unless @recipe
 
+
+
     @foods = current_user.foods
     @recipe_foods = @recipe.recipe_foods.includes(:food)
     @items_to_buy = 0

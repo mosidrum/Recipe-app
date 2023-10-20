@@ -27,8 +27,8 @@
             <% @recipe_foods&.each do |recipe_food| %>
               <tr>
                 <td><%= recipe_food.food.name %></td>
-                <td><%= (recipe_food.food.quantity - recipe_food.quantity) %></td>
-                <td><%= number_to_currency((recipe_food.food.quantity - recipe_food.quantity) * recipe_food.food.price, precision: 2) %></td>
+                <td><%= recipe_food.quantity %></td>
+                <td><%= number_to_currency(recipe_food.food.price * recipe_food.quantity, unit: '') %></td>
               </tr>
             <% end %>
           </tbody>
