@@ -13,3 +13,87 @@
  *= require_tree .
  *= require_self
  */
+
+html{
+  background-color: #D0D3D4 ;
+} 
+
+body{
+  border: 1px solid white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 6px;
+  background-color: #34495E;
+}
+
+h2{
+  font-family: Arial, Helvetica, sans-serif;
+  color: #D0D3D4
+}
+
+.remember_me {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.field label{
+  font-family: Arial, Helvetica, sans-serif;
+  color: #D0D3D4;
+  margin-bottom: 3px;
+  font-size: 12px;
+}
+
+#user_email{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+#user_password{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.actions{
+  display: flex;
+  justify-content: center;
+}
+
+.btn-log-in{
+  border-radius: 5px;
+  background-color: #7fcabb ;
+  width: 150px;
+  padding: 3px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container-remember_me{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #D0D3D4;
+  margin-bottom: 3px;
+  font-size: 12px;
+}
+
+.links-needed{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+}
+
+a{
+  font-family: Arial, Helvetica, sans-serif;
+  color: #D0D3D4;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+a:hover{
+  text-decoration:underline;
+}
