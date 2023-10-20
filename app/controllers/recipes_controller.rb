@@ -2,12 +2,12 @@ class RecipesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @recipes = current_user.recipes.includes(:recipe_foods, :foods)
+    @recipes = current_user.recipes
   end
 
   def show
-    @recipe = Recipe.includes(:recipe_foods, :foods).find(params[:id])
-    @recipe_foods = @recipe.recipe_foods
+    @recipe = Recipe.find(params[:id])
+    @recipe_foods = @recipe.recipe_foods.includes(:food)
     @preparation_time_hours = @recipe.preparation_time_hours
     @preparation_time_minutes = @recipe.preparation_time_minutes
     @cooking_time_hours = @recipe.cooking_time_hours
@@ -16,11 +16,8 @@ class RecipesController < ApplicationController
 
   def toggle_public
     @recipe = Recipe.find(params[:id])
-    if @recipe.update(public: !@recipe.public)
-      render json: { public: @recipe.public }
-    else
-      render json: { errors: @recipe.errors.full_messages }, status: :unprocessable_entity
-    end
+    @recipe.update(public: !@recipe.public)
+    redirect_to @recipe, notice: "Recipe is now #{@recipe.public ? 'public' : 'private'}"
   end
 
   def new
