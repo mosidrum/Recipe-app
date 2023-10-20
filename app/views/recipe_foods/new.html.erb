@@ -1,0 +1,22 @@
+<section class="main-container-recipe-foods">
+  <div class="recipe-food">
+    <h2 class="title-recipe-food">Add new ingredient to:</h2>
+    <h3 class="name-recipe-food"><%= @recipe.name %></h3>
+
+    <div class="recipe-food-form-container">
+      <%= form_with model: [@recipe, @recipe_food], class: "needs-validation", novalidate: true do |f|%>
+        <div class="form-group">
+          <%= f.collection_select :food_id, Food.order(:name), :id, :name_with_measurement_unit, { prompt: "Choose ingredients" }, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.number_field :quantity, placeholder: 'Quantity', required: true, step: '0.01', class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.submit "add new ingredient", class: 'btn-add-new-ingredient' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
