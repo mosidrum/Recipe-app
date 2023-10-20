@@ -1,11 +1,37 @@
 class RecipesController < ApplicationController
   before_action :authenticate_user!
+
   def index
-    @recipes = current_user.recipes
+    @recipes = current_user.recipes.includes(:recipe_foods, :foods)
+  end
+
+  def show
+    @recipe = Recipe.includes(:recipe_foods, :foods).find(params[:id])
+    @recipe_foods = @recipe.recipe_foods
+    @preparation_time_hours = @recipe.preparation_time_hours
+    @preparation_time_minutes = @recipe.preparation_time_minutes
+    @cooking_time_hours = @recipe.cooking_time_hours
+    @cooking_time_minutes = @recipe.cooking_time_minutes
+  end
+
+  def toggle_public
+    @recipe = Recipe.find(params[:id])
+    if @recipe.update(public: !@recipe.public)
+      render json: { public: @recipe.public }
+    else
+      render json: { errors: @recipe.errors.full_messages }, status: :unprocessable_entity
+    end
   end
 
   def new
     @recipe = Recipe.new
+  end
+
+  def destroy
+    @recipe = Recipe.find(params[:id])
+    @recipe.destroy!
+
+    redirect_to recipes_path, notice: 'Recipe successfully deleted.'
   end
 
   def create
@@ -15,25 +41,9 @@ class RecipesController < ApplicationController
     @recipe.cooking_time = calculate_minutes(params[:recipe][:cooking_time_hr], params[:recipe][:cooking_time_min])
 
     if @recipe.save
-      redirect_to @recipe, notice: 'Recipe was created.'
+      redirect_to @recipe, notice: 'Recipe successfully created.'
     else
-      render 'new', alert: 'Failed to create a new recipe.Try Again '
-    end
-  end
-
-  def destroy
-    @recipe = Recipe.find(params[:id])
-    @recipe.destroy!
-
-    redirect_to recipes_path, notice: 'Recipe was deleted.'
-  end
-
-  def toggle_public
-    @recipe = Recipe.find(params[:id])
-    if @recipe.update(public: !@recipe.public)
-      render json: { public: @recipe.public }
-    else
-      render json: { errors: @recipe.errors.full_messages }, status: :unprocessable_entity
+      render 'new', alert: 'Failed to create a new recipe.'
     end
   end
 

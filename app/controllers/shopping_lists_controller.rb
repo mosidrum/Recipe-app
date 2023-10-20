@@ -3,8 +3,10 @@ class ShoppingListsController < ApplicationController
     recipe_id = params[:recipe_id]
     return unless recipe_id.present?
 
-    @recipe = Recipe.find_by(id: recipe_id)
+    @recipe = Recipe.includes(recipe_foods: :food).find_by(id: recipe_id)
     return redirect_to root_path, alert: 'Recipe was not found' unless @recipe
+
+
 
     @foods = current_user.foods
     @recipe_foods = @recipe.recipe_foods.includes(:food)

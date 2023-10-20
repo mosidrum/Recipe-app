@@ -1,7 +1,7 @@
 class FoodsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @foods = Food.includes(:category).all.order(id: :desc)
+    @foods = Food.includes(:user).all
   end
 
   # def show; end
