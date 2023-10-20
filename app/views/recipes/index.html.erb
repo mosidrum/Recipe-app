@@ -6,8 +6,10 @@
       <div class="card-body-recipe-list">
         <article class="article-recipe-list">
           <div class="little-contaienr-recipe-list">
+            <%= link_to recipe_path(recipe), class: "btn-link-to-recipe" do %>
             <h1><%= recipe.name %></h1>
-            <%= link_to "REMOVE", recipe_path(recipe), method: :delete, class: "btn-remove-recipe", data: { confirm: 'Are you sure?' } %>
+            <% end %>
+            <%= button_to "REMOVE", recipe_path(recipe), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn-remove-recipe" %>
           </div>
           <div>
             <p class="recipe-description">
