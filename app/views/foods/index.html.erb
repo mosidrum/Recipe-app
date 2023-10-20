@@ -6,6 +6,16 @@
       </div>
     </div>
     <div class="card-body-food">
+       <% if @foods.present? %>
+        <small class="number-of-foods">
+          Number of foods:
+          <%= @foods.size %>
+        </small>
+      <% else %>
+        <small class="No-foods-found">
+          No foods found.
+        </small>
+      <% end %>
       <table class="table-food">
         <thead class="thead-food">
           <tr>
