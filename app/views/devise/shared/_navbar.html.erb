@@ -17,9 +17,17 @@
             <%= link_to "Shopping Lists", shopping_lists_path, class: "nav-link" %>
           </li>
         </ul>
-        <span class="navbar-text">
-          Logout
-        </span>
+        <span class="span-log-out">
+          <div class="div-dropdown">
+            <a class="dropdown-toggle" href="#" id="navbar-dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <%= current_user.name%>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li>
+                <%= link_to "Logout", destroy_user_session_path, data: { turbo_method: :delete, confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, class: "dropdown-item" %>
+              </li>
+            </ul>
+          </div>
       </div>
     </div>
   </nav>
