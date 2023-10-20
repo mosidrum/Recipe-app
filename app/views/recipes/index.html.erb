@@ -1,47 +1,22 @@
 <div class="container-recipe-list">
-    <div class="card-recipe">
-      <div class="card-body">
-        <article class="article-recipe">
-          <div>
-            <h1>Recipe 1</h1>
-            <button class="btn-card-recipe">Remove Recipe</button>
+  <%= link_to "Add Recipe", new_recipe_path, class: "btn-add-recipe" %>
+  <% @recipes.each do |recipe| %>
+    <div class="card-recipe-list">
+    <%= link_to recipe_path(recipe) do %>
+      <div class="card-body-recipe-list">
+        <article class="article-recipe-list">
+          <div class="little-contaienr-recipe-list">
+            <h1><%= recipe.name %></h1>
+            <%= link_to "REMOVE", recipe_path(recipe), method: :delete, class: "btn-remove-recipe", data: { confirm: 'Are you sure?' } %>
           </div>
-          <div class="col-8">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti quis veritatis quisquam distinctio perferendis harum eligendi?
+          <div>
+            <p class="recipe-description">
+              <%= recipe.description %>
             </p>
           </div>
         </article>
       </div>
+    <% end %> 
     </div>
-    <div class="card-recipe">
-      <div class="card-body">
-        <article class="article-recipe">
-          <div>
-            <h1>Recipe 2</h1>
-            <button class="btn-card-recipe">Remove Recipe</button>
-          </div>
-          <div class="col-8">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti quis veritatis quisquam distinctio perferendis harum eligendi?
-            </p>
-          </div>
-        </article>
-      </div>
-    </div>
-    <div class="card-recipe">
-      <div class="card-body">
-        <article class="article-recipe">
-          <div>
-            <h1>Recipe 3</h1>
-            <button class="btn-card-recipe">Remove Recipe</button>
-          </div>
-          <div class="col-8">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti quis veritatis quisquam distinctio perferendis harum eligendi?
-            </p>
-          </div>
-        </article>
-      </div>
-    </div>
+  <% end %>
   </div>

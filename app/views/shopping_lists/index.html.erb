@@ -1,0 +1,40 @@
+<div class="container-shopping-list">
+
+  <div>
+    <h1 class="title-shopping-list">Shopping List</h1>
+  </div>
+
+  <div class="card-shopping-list">
+
+    <div class="card-body-shopping-list">
+
+      <div>
+        <label class="label-shopping-list">Amount of food items to buy: <%= @recipe_foods&.count || 0 %></label>
+        <label class="label-shopping-list">Total value of food needed: <%= number_to_currency(@needed_money, precision: 2) %></label>
+      </div>
+
+      <div>
+
+        <table class="table-shopping-list">
+          <thead class="thead-shopping-list">
+            <tr>
+              <th>Food</th>
+              <th>Quantity</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @recipe_foods&.each do |recipe_food| %>
+              <tr>
+                <td><%= recipe_food.food.name %></td>
+                <td><%= (recipe_food.food.quantity - recipe_food.quantity) %></td>
+                <td><%= number_to_currency((recipe_food.food.quantity - recipe_food.quantity) * recipe_food.food.price, precision: 2) %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        
+      </div>
+    </div>
+  </div>
+</div>
