@@ -11,5 +11,3 @@ class Food < ApplicationRecord
     "#{name} (#{measurement_unit})"
   end
 end
-
-
