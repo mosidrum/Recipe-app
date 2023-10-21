@@ -1,0 +1,24 @@
+<div class="container-recipe-list">
+  <%= link_to "Add Recipe", new_recipe_path, class: "btn-add-recipe" %>
+  <% @recipes.each do |recipe| %>
+    <div class="card-recipe-list">
+    <%= link_to recipe_path(recipe) do %>
+      <div class="card-body-recipe-list">
+        <article class="article-recipe-list">
+          <div class="little-contaienr-recipe-list">
+            <%= link_to recipe_path(recipe), class: "btn-link-to-recipe" do %>
+            <h1><%= recipe.name %></h1>
+            <% end %>
+            <%= button_to "REMOVE", recipe_path(recipe), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn-remove-recipe" %>
+          </div>
+          <div>
+            <p class="recipe-description">
+              <%= recipe.description %>
+            </p>
+          </div>
+        </article>
+      </div>
+    <% end %> 
+    </div>
+  <% end %>
+  </div>

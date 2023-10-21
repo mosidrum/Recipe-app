@@ -1,0 +1,27 @@
+<div class="container-public-recipe">
+  <div>
+    <h1 class="title-public-recipe">Public Recipes</h1>
+  </div>
+  <% @recipes.includes(:user).each do |recipe| %>
+    <div class="card-public-recipe5">
+      <div class="card-body-public-recipe">
+        <div class="container-list-public-recipe">
+          <div class="main-info-public">
+          <%= link_to recipe_path(recipe) do %>
+            <h3 class="title-card-public-recipe"><%= recipe.name %></h3>
+            <span>By: <%= recipe.user.name %></span>
+          <% end %>
+          </div>
+          <div class="price-container-public-recipe">
+            <p class="info-card-public-recipe">
+              Total food items: <%= recipe.recipe_foods.count %>
+            </p>
+            <p class="info-card-public-recipe">
+              Total price: $10.00
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

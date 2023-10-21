@@ -1,0 +1,45 @@
+<main class="container-food">
+  <div class="card-container-food">
+    <div class="card-header-food">
+      <div>
+        <%= link_to 'Add food', new_food_path, class: 'btn-add-food' %>
+      </div>
+    </div>
+    <div class="card-body-food">
+       <% if @foods.present? %>
+        <small class="number-of-foods">
+          Number of foods:
+          <%= @foods.size %>
+        </small>
+      <% else %>
+        <small class="No-foods-found">
+          No foods found.
+        </small>
+      <% end %>
+      <table class="table-food">
+        <thead class="thead-food">
+          <tr class="tr-food">
+            <th class="th-food">Food</th>
+            <th class="th-food">Mmnt. Unit</th>
+            <th class="th-food">Unit price</th>
+            <th class="th-food">Unit Food</th>
+            <th class="th-food">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @foods.each do |food| %>
+            <tr>
+              <td class="td-food"><%= food.name %></td>
+              <td class="td-food"><%= food.measurement_unit %></td>
+              <td class="td-food"><%= food.price %></td>
+              <td class="td-food"><%= food.quantity %></td>
+              <td class="td-food">
+                   <%= button_to "Delete", food_path(food), method: :delete, data: { turbo_method: :delete, confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, class: 'btn-delete-food' %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</main>

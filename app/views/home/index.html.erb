@@ -1,0 +1,36 @@
+<main class="main-home">
+  <section class="main-section-home">
+    <div>
+      <div>
+        <h1 class="title-home">Welcome <%= current_user.name %>!</h1>
+        <p>
+          <a href="<%= foods_path %>" class="btn-go-to-foods">Foods</a>
+          <a href="<%= recipes_path %>" class="btn-go-to-recipes">Recipes</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+    <div class="container-list-home">
+      <div">
+        <% @foods.each do |food| %>
+          <div>
+            <div class="card-list-home">
+              <div class="card-body-list-home">
+                <p class="card-text-list-home">
+                  <%= link_to food.name, recipe_path(food), class: "text"  %>
+                </p>
+                <div class="container-btn-list-home">
+                  <div class="btn-group">
+                    <button type="button" class="btn-view">View</button>
+                    <button type="button" class="btn-edit">Edit</button>
+                  </div>
+                  <small class="text-muted">9 mins</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+</main>

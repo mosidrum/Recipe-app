@@ -1,0 +1,82 @@
+<section class="main-container-show-recipes">
+  <div class="container-show-recipes">
+    <div>
+      <% if current_user == @recipe.user %>
+        <%= form_with model: @recipe, method: :patch, class: "public-form" do |form| %>
+        <h1 class="card-title-info-recipes"><%= @recipe.name %></h1>
+          <div class="container-switch">
+            <label class="switch">
+              <input type="checkbox" <%= 'checked' if @recipe.public %> onchange="togglePublic(this)">
+              <span class="slider"></span>
+            </label>
+            <%= form.label :public, "Public", class: "ml-2" %>
+          </div>
+        <% end %>
+      <% end %>
+
+      
+
+      <div class="card-info-recipes">
+        <div class="card-body-info-recipes">
+          <div class="mini-container">
+            <div class="mini-container1">
+              <h2 class="prep-time-title">Preparation time:</h2>
+              <div class="mini-container2">
+                <% if @preparation_time_hours > 0 %>
+                  <%= "#{@preparation_time_hours} hr" %>
+                <% end %>
+                <% if @preparation_time_minutes > 0 %>
+                  <%= "#{@preparation_time_minutes} min" %>
+                <% end %>
+              </div>
+            </div>
+            <div class="mini-container3">
+              <h2 class="cooking-time-title">Cooking time:</h2>
+              <div class="mini-container4">
+                <% if @cooking_time_hours > 0 %>
+                  <%= "#{@cooking_time_hours} hr" %>
+                <% end %>
+                <% if @cooking_time_minutes > 0 %>
+                  <%= "#{@cooking_time_minutes} min" %>
+                <% end %>
+              </div>
+            </div>
+            <p class="card-text-info-recipes"><%= @recipe.description %></p>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="options-recipe">
+        <%= link_to "Add ingredient", new_recipe_recipe_food_path(@recipe.id), class: 'btn btn-primary mr-2' %>
+        <%= link_to "Generate shopping List", generate_shopping_lists_path(recipe_id: @recipe.id), class: 'btn btn-primary' %>
+      </div>
+
+      <div class="-container-table-show-recipe">
+        <table class="table-show-recipe">
+          <thead class="thead-show-recipe">
+            <tr class="tr-show-recipe">
+              <th class="th-show-recipe">Food</th>
+              <th class="th-show-recipe">Quantity</th>
+              <th class="th-show-recipe">Value</th>
+              <th class="th-show-recipe">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @recipe.recipe_foods.each do |recipe_food| %>
+              <tr class="tr-show-recipe">
+                <td class="td-show-recipe"><%= recipe_food.food.name %></td>
+                <td class="td-show-recipe"><%= recipe_food.quantity %></td>
+                <td class="td-show-recipe"><%= recipe_food.total_price %></td>
+                <td class="td-show-recipe">
+                  <%= button_to 'Delete', recipe_recipe_food_path(recipe_id: @recipe.id, id: recipe_food.id), method: :delete, class: 'btn btn-danger' %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>

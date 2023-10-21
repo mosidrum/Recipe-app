@@ -1,0 +1,33 @@
+<div class="container-shopping-list">
+  <div>
+    <h1 class="title-shopping-list">Shopping List</h1>
+  </div>
+  <div class="card-shopping-list">
+    <div class="card-body-shopping-list">
+      <div>
+        <label class="label-shopping-list">Amount of food items to buy: <%= @global_items_to_buy || 0 %></label>
+        <label class="label-shopping-list">Total value of food needed: <%= number_to_currency(@global_needed_money, precision: 2) %></label>
+      </div>
+      <div>
+        <table class="table-shopping-list">
+          <thead class="thead-shopping-list">
+            <tr class="tr-shopping">
+              <th class="th-shopping">Food</th>
+              <th class="th-shopping">Quantity</th>
+              <th class="th-shopping">Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @missing_foods.each do |food| %>
+              <tr>
+                <td><%= food[:name] %></td>
+                <td><%= food[:quantity] %></td>
+                <td><%= number_to_currency(food[:value], unit: '') %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

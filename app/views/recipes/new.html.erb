@@ -1,0 +1,40 @@
+<div class="container-new-recipe">
+  <h2>Add a New Recipe</h2>
+
+  <%= form_with(model: @recipe, url: recipes_path, method: :post) do |form| %>
+    <div class="input-name">
+      <%= form.label :name, class: "form-label" %>
+      <%= form.text_field :name, class: "form-control", required: true %>
+    </div>
+
+    <div class="input-description">
+      <%= form.label :description, class: "form-label" %>
+      <%= form.text_area :description, class: "form-control", required: true %>
+    </div>
+
+    <div class="checkbox-new-recipe">
+      <%= form.label :public, class: "form-check-label" %>
+      <%= form.check_box :public, class: "form-check-input" %>
+    </div>
+
+    <div class="input-cooking-time">
+      <%= form.label :cooking_time_hr, class: "form-label" %>
+      <%= form.number_field :cooking_time_hr, class: "form-control", min: 0 %>
+      <%= form.label :cooking_time_min, class: "form-label" %>
+      <%= form.number_field :cooking_time_min, class: "form-control", min: 0, max: 59 %>
+    </div>
+
+    <div class="input-preparation-times">
+      <%= form.label :preparation_time_hr, class: "form-label" %>
+      <%= form.number_field :preparation_time_hr, class: "form-control", min: 0 %>
+      <%= form.label :preparation_time_min, class: "form-label" %>
+      <%= form.number_field :preparation_time_min, class: "form-control", min: 0, max: 59 %>
+    </div>
+
+    <div>
+      <%= form.submit "Create Recipe", class: "btn-create-recipe" %>
+    </div>
+  <% end %>
+
+  <%= link_to "Back to Recipes", recipes_path, class: "btn btn-secondary" %>
+</div>
