@@ -38,6 +38,8 @@ class RecipesController < ApplicationController
     @recipe.cooking_time = calculate_minutes(params[:recipe][:cooking_time_hr], params[:recipe][:cooking_time_min])
 
     if @recipe.save
+      @recipe.name
+      @recipe.description
       redirect_to @recipe, notice: 'Recipe successfully created.'
     else
       render 'new', alert: 'Failed to create a new recipe.'

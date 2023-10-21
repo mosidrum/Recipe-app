@@ -18,20 +18,22 @@
       <% end %>
       <table class="table-food">
         <thead class="thead-food">
-          <tr>
-            <th>Food</th>
-            <th>Measurement unit</th>
-            <th>Unit price</th>
-            <th>Actions</th>
+          <tr class="tr-food">
+            <th class="th-food">Food</th>
+            <th class="th-food">Mmnt. Unit</th>
+            <th class="th-food">Unit price</th>
+            <th class="th-food">Unit Food</th>
+            <th class="th-food">Actions</th>
           </tr>
         </thead>
         <tbody>
           <% @foods.each do |food| %>
             <tr>
-              <td><%= food.name %></td>
-              <td><%= food.measurement_unit %></td>
-              <td><%= food.price %></td>
-              <td>
+              <td class="td-food"><%= food.name %></td>
+              <td class="td-food"><%= food.measurement_unit %></td>
+              <td class="td-food"><%= food.price %></td>
+              <td class="td-food"><%= food.quantity %></td>
+              <td class="td-food">
                    <%= button_to "Delete", food_path(food), method: :delete, data: { turbo_method: :delete, confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, class: 'btn-delete-food' %>
               </td>
             </tr>

@@ -12,6 +12,7 @@ class RecipeFoodsController < ApplicationController
   end
 
   def create
+    puts params
     @recipe = Recipe.includes(:recipe_foods).find(params[:recipe_id])
     @recipe_food = @recipe.recipe_foods.new(recipe_foods_params)
 
