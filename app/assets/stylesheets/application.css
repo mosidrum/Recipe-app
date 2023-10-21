@@ -388,4 +388,30 @@ td{
   margin: 5px;
 }
 
+form div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  color: #ffffff;
+  margin: 5px;
+}
+
+form div input{
+  margin: 5px;
+}
+
+form div textarea{
+  margin: 5px;
+}
+
+.container-new-recipe{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 
