@@ -414,4 +414,82 @@ form div textarea{
   flex-direction: column;
 }
 
+.card-body-info-recipes{
+  font-family: Arial, Helvetica, sans-serif;
+}
 
+.container-switch{
+  display: flex;
+  justify-content: end;
+  flex-direction: row;
+}
+
+.card-title-info-recipes{
+  font-family: Arial, Helvetica, sans-serif;
+  color: #ffffff;
+  text-align: center;
+}
+
+
+.prep-time-title{
+  font-size: 18px;
+  padding-right: 10px;
+}
+
+.mini-container1{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.cooking-time-title{
+  font-size: 18px;
+  padding-right: 10px;
+}
+
+.mini-container3{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.options-recipe {
+  display: flex;
+  justify-content: space-between;
+}
+
+.options-recipe a{
+  border-radius: 5px;
+  background-color: rgb(23, 23, 23);
+  color: #ffffff;
+  cursor: pointer;
+  padding: 5px;
+  border: 1px solid rgb(6, 6, 6);
+  margin-bottom: 8px;
+}
+
+.tr-show-recipe{
+  width: 100%;
+  font-size: 13px;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  justify-content: center;
+  flex-direction: rox;
+  width: 450px;
+  align-items: center;
+  background-color:blanchedalmond;
+}
+
+.th-show-recipe{
+  height: 20px;
+  width: 50%;
+  padding: 3px;
+  background-color: #51585f;
+  padding-top: 5px;
+}
+
+.name-recipe-food{
+  font-family: Arial, Helvetica, sans-serif;
+  color: #ffffff;
+  text-align: center;
+}
