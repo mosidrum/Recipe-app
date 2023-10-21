@@ -324,4 +324,43 @@ td{
  cursor: pointer;
 }
 
+.container-public-recipe{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title-public-recipe{
+  font-family: Arial, Helvetica, sans-serif;
+  color: #ffffff;
+}
+
+.container-list-public-recipe{
+  border: 1px solid white;
+  margin: 15px;
+  display: flex;
+  flex-direction: row;
+  width: 500px;
+  border-radius: 5px;
+  background-color: #183a46;
+  padding-left: 15px;
+  height: 100px;
+}
+
+.title-card-public-recipe{
+  font-size: 18px;
+}
+
+.info-card-public-recipe{
+  font-family: Arial, Helvetica, sans-serif;
+  padding-top: 5px;
+  margin-left: 25px;
+  font-size: 14px;
+}
+
+.main-info-public{
+  width: 175px;
+}
+
 

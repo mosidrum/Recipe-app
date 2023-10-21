@@ -6,17 +6,17 @@
     <div class="card-public-recipe5">
       <div class="card-body-public-recipe">
         <div class="container-list-public-recipe">
-          <div>
+          <div class="main-info-public">
           <%= link_to recipe_path(recipe) do %>
-            <h3><%= recipe.name %></h3>
+            <h3 class="title-card-public-recipe"><%= recipe.name %></h3>
             <span>By: <%= recipe.user.name %></span>
           <% end %>
           </div>
           <div class="price-container-public-recipe">
-            <p>
+            <p class="info-card-public-recipe">
               Total food items: <%= recipe.recipe_foods.count %>
             </p>
-            <p>
+            <p class="info-card-public-recipe">
               Total price: $10.00
             </p>
           </div>
