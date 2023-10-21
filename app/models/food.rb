@@ -7,7 +7,9 @@ class Food < ApplicationRecord
   validates :price, presence: true
   validates :measurement_unit, presence: true
 
-  def name_and_measurement_unit
+  def name_with_measurement_unit
     "#{name} (#{measurement_unit})"
   end
 end
+
+
