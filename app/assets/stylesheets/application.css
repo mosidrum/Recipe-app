@@ -25,6 +25,7 @@ body{
   align-items: center;
   border-radius: 6px;
   background-color: #34495E;
+  height: 550px;
 }
 
 h2{
@@ -96,4 +97,57 @@ a{
 
 a:hover{
   text-decoration:underline;
+}
+
+
+.navbar-title{
+  padding: 25px;
+  font-size: 25px;
+}
+
+.navbar-text{
+  display: flex;
+}
+
+.navbar{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-list{
+  display: flex;
+  border: 1px solid black;
+  width: 350px;
+  border-radius: 5px;
+  background-color: #283847;
+}
+
+.navbar-list li {
+  padding: 10px;
+  list-style: none;
+} 
+
+.div-dropdown{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid white;
+  border-radius: 5px;
+  height: 8px;
+  padding: 15px;
+  margin-left: 25px;
+}
+
+.dropdown-menu{
+  list-style: none;
+}
+
+.span-log-out{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
