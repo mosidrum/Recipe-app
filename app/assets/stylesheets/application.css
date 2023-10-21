@@ -197,7 +197,7 @@ tr{
   align-items: center;
 }
 
-th{
+.th-shopping{
   width: 45%;
   padding: 3px;
   background-color: #46515c;
@@ -213,4 +213,82 @@ td{
   flex-direction: row;
   align-items: center;
 }
+
+.table-food{
+  background-color: #3c536a;
+  width: 450px;
+  margin-top: 25px;
+}
+
+.th-food{
+  height: 20px;
+  width: 50%;
+  padding: 3px;
+  background-color: #51585f;
+  padding-top: 5px;
+}
+
+.tr-food{
+  width: 100%;
+  font-size: 13px;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  justify-content: center;
+  flex-direction: rox;
+  width: 450px;
+  align-items: center;
+}
+
+.td-food{
+  text-align: center;
+  width: 45%;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #D0D3D4;
+  font-size: 12px;
+  padding: 3px;
+}
+
+.btn-delete-food{
+  border-radius: 5px;
+  background-color: rgb(152, 16, 16);
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.btn-delete-food:hover{
+  background-color: #380404;
+}
+
+.number-of-foods{
+  font-family: Arial, Helvetica, sans-serif;
+  color: #D0D3D4;
+  margin-top: 8px;
+}
+
+.card-header-food{
+  display: flex;
+  justify-content: end;
+  margin: 5px;
+}
+
+.btn-add-food{
+  border-radius: 5px;
+  background-color: rgb(23, 23, 23);
+  color: #ffffff;
+  cursor: pointer;
+  padding: 5px;
+  border: 1px solid rgb(6, 6, 6);
+  margin-bottom: 8px;
+}
+
+.btn-add-food:hover{
+  background-color: rgb(59, 58, 58);
+  text-decoration: none;
+  border: 1px solid rgb(218, 216, 216);
+}
+
 
