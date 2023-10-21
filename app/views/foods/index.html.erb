@@ -22,6 +22,7 @@
             <th>Food</th>
             <th>Measurement unit</th>
             <th>Unit price</th>
+            <th>Unit Food</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -31,6 +32,7 @@
               <td><%= food.name %></td>
               <td><%= food.measurement_unit %></td>
               <td><%= food.price %></td>
+              <td><%= food.quantity %></td>
               <td>
                    <%= button_to "Delete", food_path(food), method: :delete, data: { turbo_method: :delete, confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, class: 'btn-delete-food' %>
               </td>
